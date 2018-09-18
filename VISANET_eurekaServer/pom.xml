@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pe.com.java.crga.springboot</groupId>
+	<artifactId>VISANET_eurekaServer</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	<name>VISANET_eurekaServer</name>
+	<description>VISANET_eurekaServer</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
+		<relativePath /> 
+	</parent>
+ 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		
+        <springboot.bootadmin.version>1.5.1</springboot.bootadmin.version>
+		<surfire.plugin.version>2.19.1</surfire.plugin.version>
+	</properties>
+    
+    <!-- IMPORTANTE -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR6</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<dependencies>
+	
+	    <!-- PARA: 'SPRINGBOOT' (GENERAL) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+        </dependency>
+        
+	    <!-- PARA: 'SPRINGBOOT' (EUREKA-SERVER) -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+		</dependency>
+
+	    <!-- PARA: 'SPRINGBOOT': (BOOT-ADMIN-CLIENT) -->
+        <dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>${springboot.bootadmin.version}</version>
+		</dependency>	    
+	    
+	    <!-- PARA: 'SPRINGBOOT': (ACTUATOR) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+ 
+        <!-- PARA: 'LOG4J' (LOMBOK) -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency> 
+ 
+	</dependencies>
+ 
+	<build>
+		<plugins>
+			<!-- PARA: 'SPRINGBOOT' -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin> 
+			
+			<!-- PARA: 'SURFIRE' -->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <version>${surfire.plugin.version}</version> 
+			    <configuration>
+			        <testFailureIgnore>true</testFailureIgnore>
+			    </configuration>
+			</plugin>	
+ 					
+	    </plugins>	 
+	</build>
+ 
+</project>
+

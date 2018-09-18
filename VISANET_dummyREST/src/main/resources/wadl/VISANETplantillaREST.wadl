@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+
+<application xmlns="http://wadl.dev.java.net/2009/02" >
+ 
+    <grammars>
+        <include href="VISANETplantillaREST.xsd" >
+            <doc title="VISANETplantillaREST" xml:lang="en" />
+        </include>        
+        
+        <include href="VISANETFault.xsd" >
+            <doc title="VISANETFault" xml:lang="en" />
+        </include>  
+    </grammars>
+     
+     <resources base="visanet" >
+ 
+	    <!-- ********************************************** -->
+	    <!-- **************** [SOLICITUDES] *************** -->
+	    <!-- ********************************************** -->     
+        <resource path="/services/get/solicitudes/{soliciId}" > 
+           <param name="soliciId" style="template" />
+           <method name="GET" > 
+              <response>
+                 <representation mediaType="*/*" element="gensol:parametrosResponseGET" xmlns:gensol="http://visanet.com.pe/soap/ventas/generatesolicitude/ws/types" />   
+			     <fault status="400" mediaType="*/*" element="fault:BaseFault" xmlns:fault="http://visanet.com.pe/rest/generic/visanetFault/ws/types" />
+              </response>
+           </method>
+        </resource>
+ 
+        <resource path="/services/post/solicitudes" >
+           <method name="POST" > 
+              <request>
+                 <representation mediaType="*/*" element="gensol:parametrosRequestPOST" xmlns:gensol="http://visanet.com.pe/soap/ventas/generatesolicitude/ws/types" /> 
+              </request>
+              <response>
+                 <representation mediaType="*/*" element="gensol:parametrosResponsePOST" xmlns:gensol="http://visanet.com.pe/soap/ventas/generatesolicitude/ws/types" />   
+			     <fault status="400" mediaType="*/*" element="fault:BaseFault" xmlns:fault="http://visanet.com.pe/rest/generic/visanetFault/ws/types" />
+               </response>
+           </method>
+        </resource>
+ 
+        <resource path="/services/delete/solicitudes/{soliciId}" > 
+           <param name="soliciId" style="template" />
+           <method name="DELETE" > 
+              <response>
+                 <representation mediaType="*/*" element="gensol:parametrosResponseDELETE" xmlns:gensol="http://visanet.com.pe/soap/ventas/generatesolicitude/ws/types" />   
+			     <fault status="400" mediaType="*/*" element="fault:BaseFault" xmlns:fault="http://visanet.com.pe/rest/generic/visanetFault/ws/types" />
+              </response>
+           </method>
+        </resource>
+             
+     </resources> 
+   
+</application>
+

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	        xmlns="http://visanet.com.pe/rest/ventas/generatesolicitude/ws/types"
+	        xmlns:audit="http://visanet.com.pe/soap/generic/visanetAudit/ws/types"
+	        targetNamespace="http://visanet.com.pe/rest/ventas/generatesolicitude/ws/types"
+	        attributeFormDefault="unqualified" 
+	        elementFormDefault="qualified" >
+	      
+	        <xsd:import namespace="http://visanet.com.pe/soap/generic/visanetAudit/ws/types" 
+	                    schemaLocation="./VISANETAudit.xsd" />
+	      
+	      	      
+		    <!--******************* ELEMENTs *******************-->	        
+		    <xsd:element name="parametrosRequestGET"     type="parametrosRequestGETType"    />
+	        <xsd:element name="parametrosRequestPOST"    type="parametrosRequestPOSTType"   />
+	        <xsd:element name="parametrosRequestDELETE"  type="parametrosRequestDELETEType" />
+	        	        
+		    <xsd:element name="parametrosResponseGET"    type="parametrosResponseGETType"    />
+	        <xsd:element name="parametrosResponsePOST"   type="parametrosResponsePOSTType"   />
+	        <xsd:element name="parametrosResponseDELETE" type="parametrosResponseDELETEType" />
+			
+		
+		    <!-- ***************************************** -->
+		    <!-- *************** [REQUEST] *************** --> 
+		    <!-- ***************************************** --> 	
+	        <xsd:complexType name="parametrosRequestGETType" > 
+	            <xsd:sequence>
+	                <xsd:element name="auditRequest" type="audit:AuditRequestType" />
+	                
+	                <!-- LOS DATOS DEL 'BODY' [REQUEST], SE INGRESAN AQUI -->    
+	                <xsd:element name="code" type="xsd:string" /> 
+	            </xsd:sequence>
+	        </xsd:complexType>
+		    
+		    <xsd:complexType name="parametrosRequestPOSTType" > 
+	            <xsd:sequence>
+	                <xsd:element name="auditRequest" type="audit:AuditRequestType" /> 
+	                
+	                <!-- LOS DATOS DEL 'BODY' [REQUEST], SE INGRESAN AQUI -->    
+	                <xsd:element name="name"      type="xsd:string" /> 
+	                <xsd:element name="lastName"  type="xsd:string" />
+	                <xsd:element name="telephone" type="xsd:string" />	
+	                <xsd:element name="dni"       type="xsd:string" />
+	            </xsd:sequence> 
+		    </xsd:complexType>
+		    
+		    <xsd:complexType name="parametrosRequestDELETEType" > 
+	            <xsd:sequence>
+	                <xsd:element name="auditRequest" type="audit:AuditRequestType" /> 
+	                
+	                <!-- LOS DATOS DEL 'BODY' [REQUEST], SE INGRESAN AQUI -->    
+	                <xsd:element name="code" type="xsd:string" /> 
+	            </xsd:sequence> 
+		    </xsd:complexType>
+		    
+		    
+		    <!-- ****************************************** -->
+		    <!-- *************** [RESPONSE] *************** -->
+		    <!-- ****************************************** -->
+		    <xsd:complexType name="parametrosResponseGETType" > 
+	            <xsd:sequence>
+	                <xsd:element name="auditResponse" type="audit:AuditResponseType" />
+	                
+	                <!-- LOS DATOS DEL 'BODY' [RESPONSE], SE INGRESAN AQUI -->
+	                <xsd:element name="dato" maxOccurs="unbounded" minOccurs="0" > 
+	                    <xsd:complexType>
+	                        <xsd:sequence>
+	                            <xsd:element type="xsd:string" name="usuarioId" />
+	                            <xsd:element type="xsd:string" name="nombre" />
+	                            <xsd:element type="xsd:string" name="apellido" /> 
+	                        </xsd:sequence>
+	                    </xsd:complexType>
+	                </xsd:element>
+	            </xsd:sequence> 
+		    </xsd:complexType>
+		    
+		    <xsd:complexType name="parametrosResponsePOSTType" > 
+	            <xsd:sequence>
+	                <xsd:element name="auditResponse" type="audit:AuditResponseType" /> 
+	                
+					<!-- LOS DATOS DEL 'BODY' [RESPONSE], SE INGRESAN AQUI -->  
+				    <xsd:element name="state" type="xsd:string" /> 
+				    <xsd:element name="date"  type="xsd:string" />
+	            </xsd:sequence> 
+		    </xsd:complexType> 
+		    
+		    <xsd:complexType name="parametrosResponseDELETEType" > 
+	            <xsd:sequence>
+	                <xsd:element name="auditResponse" type="audit:AuditResponseType" /> 
+	                
+					<!-- LOS DATOS DEL 'BODY' [RESPONSE], SE INGRESAN AQUI -->  
+				    <xsd:element name="state" type="xsd:string" /> 
+				    <xsd:element name="date"  type="xsd:string" />
+	            </xsd:sequence> 
+		    </xsd:complexType>
+		     
+</xsd:schema>
+

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" >
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pe.com.visanet.rest</groupId>
+	<artifactId>VISANET_dummyREST</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	<name>VISANET_dummyREST</name>
+	<description>VISANET_dummyREST</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
+		<relativePath />  
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		
+        <springboot.bootadmin.version>1.5.1</springboot.bootadmin.version>
+		<surfire.plugin.version>2.19.1</surfire.plugin.version>
+		<commons.collections.version>3.2.2</commons.collections.version>
+		<oracle.version>11.2.0.3</oracle.version>		
+		<javax.ws.rs.version>2.0</javax.ws.rs.version>
+		<apache.camel.version>2.18.1.redhat-000015</apache.camel.version>
+		
+	    <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
+	    <fabric8.version>3.0.11.fuse-710023-redhat-00001</fabric8.version>
+	    <fabric8.maven.plugin.version>3.5.33.fuse-710023-redhat-00002</fabric8.maven.plugin.version>
+	    <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version> 
+	    <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+	    
+	    
+	</properties>
+    
+    <!-- IMPORTANTE -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR6</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency> 
+		</dependencies>
+	</dependencyManagement>
+ 
+ 
+	<dependencies>
+        
+	    <!-- PARA: 'SPRINGBOOT' (GENERAL) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+        </dependency>
+        
+        <!-- SPRING CLOUD -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+        
+        <!-- PARA: 'SPRINGBOOT' (EUREKA-CLIENT) -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+ 
+	    <!-- PARA: 'SPRINGBOOT': (BOOT-ADMIN-CLIENT) -->
+        <dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>${springboot.bootadmin.version}</version>
+		</dependency>	    
+	    
+	    <!-- PARA: 'SPRINGBOOT': (ACTUATOR) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+   
+        <!-- PARA: 'SPRINGBOOT' (JPA) -->  
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>        
+                 
+        <!-- PARA: 'SPRINGBOOT': (HYSTRIX) -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+ 
+		<dependency>
+		    <groupId>commons-collections</groupId>
+		    <artifactId>commons-collections</artifactId>
+		    <version>${commons.collections.version}</version> 
+		</dependency>   
+		       
+		             
+        <!-- PARA: 'OTROS' -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>           
+ 
+		<!-- PARA: 'ORACLEDB' -->
+		<dependency>
+			<groupId>oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>${oracle.version}</version>
+		</dependency>
+ 
+		<dependency>
+		    <groupId>javax.ws.rs</groupId>
+		    <artifactId>javax.ws.rs-api</artifactId>
+		    <version>${javax.ws.rs.version}</version>
+		</dependency>      
+ 
+        <!-- PARA: 'LOG4J' (LOMBOK) -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+ 
+       
+       <!-- PARA: 'CAMEL' -->
+	   <dependency>
+	      <groupId>javax.inject</groupId>
+	      <artifactId>javax.inject</artifactId>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>org.apache.camel</groupId>
+	      <artifactId>camel-spring-boot-starter</artifactId>
+	      <version>${apache.camel.version}</version>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-starter-actuator</artifactId>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>org.springframework</groupId>
+	      <artifactId>spring-test</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-starter-test</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+  
+	</dependencies>
+	
+	
+    <!-- REPOSITORIOS [REDHAT] --> 
+	<repositories>
+	
+	    <repository>
+	      <releases>
+	        <enabled>true</enabled>
+	        <updatePolicy>never</updatePolicy>
+	      </releases>
+	      <snapshots>
+	        <enabled>false</enabled>
+	      </snapshots>
+	      <id>fuse-public-repository</id>
+	      <name>FuseSource Community Release Repository</name>
+	      <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+	    </repository>
+	    
+	    <repository>
+	      <releases>
+	        <enabled>true</enabled>
+	        <updatePolicy>never</updatePolicy>
+	      </releases>
+	      <snapshots>
+	        <enabled>false</enabled>
+	      </snapshots>
+	      <id>red-hat-ga-repository</id>
+	      <name>Red Hat GA Repository</name>
+	      <url>https://maven.repository.redhat.com/ga</url>
+	    </repository>
+	    
+	    <repository>
+	      <releases>
+	        <enabled>true</enabled>
+	        <updatePolicy>never</updatePolicy>
+	      </releases>
+	      <snapshots>
+	        <enabled>false</enabled>
+	      </snapshots>
+	      <id>red-hat-ea-repository</id>
+	      <name>Red Hat EA Repository</name>
+	      <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+	    </repository>
+	    
+	</repositories> 
+	 
+ 
+    <!-- PLUGIN-REPOSITORIOS [FUSE] --> 
+    <pluginRepositories>
+    
+	    <pluginRepository>
+	      <releases>
+	        <enabled>true</enabled>
+	        <updatePolicy>never</updatePolicy>
+	      </releases>
+	      <snapshots>
+	        <enabled>false</enabled>
+	      </snapshots>
+	      <id>fuse-public-repository</id>
+	      <name>FuseSource Community Release Repository</name>
+	      <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+	    </pluginRepository>
+	    
+	    <pluginRepository>
+	      <releases>
+	        <enabled>true</enabled>
+	        <updatePolicy>never</updatePolicy>
+	      </releases>
+	      <snapshots>
+	        <enabled>false</enabled>
+	      </snapshots>
+	      <id>red-hat-ga-repository</id>
+	      <name>Red Hat GA Repository</name>
+	      <url>https://maven.repository.redhat.com/ga</url>
+	    </pluginRepository>
+	    
+	    <pluginRepository>
+	      <releases>
+	        <enabled>true</enabled>
+	        <updatePolicy>never</updatePolicy>
+	      </releases>
+	      <snapshots>
+	        <enabled>false</enabled>
+	      </snapshots>
+	      <id>red-hat-ea-repository</id>
+	      <name>Red Hat EA Repository</name>
+	      <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+	    </pluginRepository>
+	    
+	</pluginRepositories>
+   
+   
+	<build>	    
+		<plugins>	
+			<!-- PARA: 'SPRINGBOOT' -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin> 
+			
+			<!-- PARA: 'SURFIRE' -->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <version>${surfire.plugin.version}</version> 
+			    <configuration>
+			        <testFailureIgnore>true</testFailureIgnore>
+			    </configuration>
+			</plugin>
+ 								
+	    </plugins>	 
+	</build>
+	
+</project>
+

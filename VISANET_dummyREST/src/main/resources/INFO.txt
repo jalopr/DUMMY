@@ -1,0 +1,26 @@
+  
+  GET:  
+  http://localhost:9002/visanet/services/get/solicitudes/111
+  
+  POST:
+  http://localhost:9002/visanet/services/post/solicitudes
+  
+  DELETE:
+  http://localhost:9002/visanet/services/delete/solicitudes/111  
+  
+  -------------------------------------------------------
+  
+  POST   - Create a new resource
+  GET    - Read a resource
+  PUT    - Update an existing resource
+  DELETE - Delete a resource 
+
+  200 - SUCESS
+  404 - RESOURCE NOT FOUND
+  400 - BAD REQUEST
+  201 - CREATED
+  401 - UNAUTHORIZED
+  415 - UNSUPPORTED TYPE - Representation not supported for the resource
+  500 - SERVER ERROR 
+  
+  

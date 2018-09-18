@@ -1,0 +1,15 @@
+  
+ [EUREKA]:
+ --------
+ http://localhost:8010
+  
+ SERVER (8761 es el PUERTO por DEFAULT):
+ http://localhost:8761
+ 
+ 
+ HERRAMIENTAS:
+ ------------
+ http://localhost:8761/eureka/apps 
+ http://localhost:8761/eureka/apps/NOMBRE_SERVICIO ejemplo: http://localhost:8761/eureka/apps/VISANET_DUMMYSOAP
+ 
+ 
